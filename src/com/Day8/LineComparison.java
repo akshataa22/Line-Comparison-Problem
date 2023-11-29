@@ -2,50 +2,61 @@ package com.Day8;
 
 import java.util.Scanner;
 
-public class LineComparison {
+class LineComparison {
+    private double x1, y1, x2, y2;
+
+    public LineComparison(double x1, double y1, double x2, double y2) {     //constructor
+            this.x1 = x1;
+            this.y1 = y1;
+            this.x2 = x2;
+            this.y2 = y2;
+    }
+
+    public double calculateLength() {
+            return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    }
+
     public static void main(String[] args) {
-        System.out.println("Welcome to Line Comparison Program.");
+    Scanner sc = new Scanner(System.in);
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter x1,y1 co-ordinates of line1: ");
-        double x1 = sc.nextDouble();
-        double y1 = sc.nextDouble();
+    System.out.println("Enter x1, y1 coordinates of line1:");
+    double x1 = sc.nextDouble();
+    double y1 = sc.nextDouble();
 
-        System.out.println("Enter x2,y2 co-ordinates of line1: ");
-        double x2 = sc.nextDouble();
-        double y2 = sc.nextDouble();
+    System.out.println("Enter x2, y2 coordinates of line1:");
+    double x2 = sc.nextDouble();
+    double y2 = sc.nextDouble();
 
-        double length1 = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-        System.out.println("Length of line1: " + length1);
+    System.out.println("Enter x1, y1 coordinates of line2:");
+    double x3 = sc.nextDouble();
+    double y3 = sc.nextDouble();
 
-        System.out.println("Enter x1,y1 co-ordinates of line2: ");
-        double x3 = sc.nextDouble();
-        double y3 = sc.nextDouble();
+    System.out.println("Enter x2, y2 coordinates of line2:");
+    double x4 = sc.nextDouble();
+    double y4 = sc.nextDouble();
 
-        System.out.println("Enter x2,y2 co-ordinates of line2: ");
-        double x4 = sc.nextDouble();
-        double y4 = sc.nextDouble();
+    LineComparison line1 = new LineComparison(x1, y1, x2, y2);
+    LineComparison line2 = new LineComparison(x3, y3, x4, y4);
 
-        double length2 = Math.sqrt(Math.pow(x4 - x3, 2) + Math.pow(y4 - y3, 2));
-        System.out.println("Length of line2: " + length2);
+    double length1 = line1.calculateLength();
+    double length2 = line2.calculateLength();
 
-        Double len1 = Double.valueOf(length1);
-        Double len2 = Double.valueOf(length2);
+    System.out.println("Length of line1: " + length1);
+    System.out.println("Length of line2: " + length2);
 
-        //using equals method
-        if (len1.equals(len2)){
-            System.out.println("length of two lines are equal.");
-        } else {
-            System.out.println("Not equal.");
-        }
+    if (length1 == length2) {
+        System.out.println("Length of two lines are equal.");
+    } else {
+        System.out.println("Not equal.");
+    }
 
-        //using compare-to method
-        int result = Double.compare(length1,length2);
-        System.out.println(result);
-        if(result == 0){
-            System.out.println("length of two lines are equal.");
-        } else {
-            System.out.println("not equal.");
-        }
+    // Using compare-to method
+        int result = Double.compare(length1, length2);
+    System.out.println(result);
+    if (result == 0) {
+        System.out.println("Length of two lines are equal.");
+    } else {
+        System.out.println("Not equal.");
+    }
     }
 }
