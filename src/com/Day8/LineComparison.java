@@ -38,5 +38,14 @@ public class LineComparison {
         } else {
             System.out.println("Not equal.");
         }
+
+        //using compare-to method
+        int result = Double.compare(length1,length2);
+        System.out.println(result);
+        if(result == 0){
+            System.out.println("length of two lines are equal.");
+        } else {
+            System.out.println("not equal.");
+        }
     }
 }
