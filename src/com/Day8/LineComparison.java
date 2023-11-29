@@ -31,5 +31,12 @@ public class LineComparison {
 
         Double len1 = Double.valueOf(length1);
         Double len2 = Double.valueOf(length2);
+
+        //using equals method
+        if (len1.equals(len2)){
+            System.out.println("length of two lines are equal.");
+        } else {
+            System.out.println("Not equal.");
+        }
     }
 }
